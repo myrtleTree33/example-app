@@ -26,10 +26,10 @@
   "scripts": {
     "start": "npm-run-all clean build .run-app",
     "clean": "rimraf coverage build tmp",
-    "dev": "npm-run-all --parallel build:watch .run-app",
+    "dev": "npm-run-all --parallel build:watch start:watch",
     "build": "tsc -p tsconfig.release.json",
     "build:watch": "tsc -w -p tsconfig.release.json",
-    "start:watch": "nodemon --ext js ./build/main.js",
+    "start:watch": "PORT=8000 nodemon --watch build --ext js ./build/main.js",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
