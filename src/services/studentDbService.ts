@@ -3,6 +3,11 @@ import StudentT from '../models/StudentT';
 
 const students = new Map();
 
+const resetDb = async (): Promise<void> => {
+  students.clear();
+  return Promise.resolve();
+};
+
 const getStudent = async (id: string): Promise<StudentT> => {
   if (!students.has(id)) {
     return Promise.reject(`No such student id=${id}`);
@@ -14,6 +19,7 @@ const addStudent = async (student: StudentT): Promise<StudentT> => {
   const { id } = student;
 
   if (students.has(id)) {
+    console.log(students);
     return Promise.reject(new Error('Student is in DB'));
   }
 
@@ -26,7 +32,8 @@ const updateStudent = async (id: string, classT: string): Promise<StudentT> => {
     return Promise.reject(`No such student id=${id}`);
   }
   const s = deepCloneSimple(students.get(id));
-  s.class = classT;
+  s.classT = classT;
+
   students.set(id, s);
   return s;
 };
@@ -55,6 +62,7 @@ const getStudentsInClass = async (classId: string): Promise<StudentT[]> => {
 };
 
 const studentDbService = {
+  resetDb,
   getStudent,
   addStudent,
   updateStudent,
