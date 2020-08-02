@@ -47,8 +47,6 @@
     "express-validator": "^6.6.0",
     "express-winston": "^4.0.5",
     "helmet": "^3.23.3",
-    "swagger-jsdoc": "^4.0.0",
-    "swagger-ui-express": "^4.1.4",
     "tslib": "~2.0.0",
     "winston": "^3.3.3"
   }
