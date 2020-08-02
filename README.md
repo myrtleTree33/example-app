@@ -1,6 +1,6 @@
 # Example App
 
-Example app for Typescript + Docker + Express + Jest for BDD testing.
+Example app for Typescript + Docker + Express + pm2 + Jest for BDD testing.
 
 ## Documentation
 
